@@ -4,25 +4,22 @@ import { motion } from "framer-motion";
 type DayKey = "MON" | "TUE" | "WED" | "THU" | "FRI" | "SAT" | "SUN";
 
 /**
- * Hourly busyness levels from 6a to 9p (16 bars).
- * Curve based on real Google popular-times observations:
- *  - Weekdays: business-day curve, peak 11a-1p, taper after 2p.
- *  - Sat: short morning brunch spike (8a-12p), quiet after.
- *  - Sun: lightest day, gentle morning bump.
- *  - Sat/Sun show clear drop vs weekdays per real trend.
+ * Hourly busyness levels for Arvind Canteen — 16 bars from 8am to 11pm.
+ * Sweet shop pattern: morning moderate, afternoon slow, evening peak.
+ * Closes at 10 pm — bars 15 (11pm) always 0.
  * Values are 0-100 (relative busyness).
  */
 const data: Record<DayKey, number[]> = {
-  // 6a 7a 8a 9a 10a 11a 12p 1p 2p 3p 4p 5p 6p 7p 8p 9p
-  MON: [12, 22, 38, 52, 64, 78, 86, 88, 72, 50, 30, 20, 14, 10, 8, 6],
-  TUE: [14, 26, 44, 60, 74, 86, 92, 94, 82, 56, 32, 22, 16, 12, 10, 8],
-  WED: [14, 28, 46, 62, 76, 86, 92, 92, 80, 54, 32, 22, 16, 12, 10, 8],
-  THU: [16, 30, 48, 66, 80, 90, 94, 96, 84, 58, 34, 22, 16, 12, 10, 8],
-  FRI: [18, 32, 52, 70, 86, 94, 98, 98, 88, 62, 36, 24, 18, 14, 12, 10],
-  // Saturday — short brunch spike, quiet afternoon
-  SAT: [0, 0, 36, 58, 74, 70, 50, 34, 18, 10, 6, 4, 4, 0, 0, 0],
-  // Sunday — lightest, gentle morning
-  SUN: [0, 0, 16, 22, 32, 42, 44, 36, 22, 14, 8, 6, 4, 0, 0, 0],
+  // 8a  9a  10a 11a 12p 1p  2p  3p  4p  5p  6p  7p  8p  9p  10p 11p
+  MON: [10, 22, 32, 44, 36, 26, 18, 28, 44, 66, 76, 80, 66, 46, 14, 0],
+  TUE: [12, 24, 34, 46, 38, 28, 20, 30, 46, 68, 78, 82, 68, 48, 16, 0],
+  WED: [12, 26, 36, 48, 40, 30, 22, 32, 48, 70, 80, 84, 70, 50, 18, 0],
+  THU: [14, 28, 38, 50, 42, 32, 24, 34, 50, 72, 82, 86, 74, 54, 20, 0],
+  FRI: [16, 32, 42, 54, 46, 34, 28, 38, 54, 76, 88, 92, 80, 60, 24, 0],
+  // Saturday — busy all day, strongest evening
+  SAT: [22, 38, 52, 66, 60, 48, 44, 52, 64, 82, 92, 96, 88, 70, 30, 0],
+  // Sunday — steady, good evening
+  SUN: [18, 32, 44, 56, 52, 44, 38, 46, 58, 76, 86, 90, 78, 58, 22, 0],
 };
 
 const days: DayKey[] = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
@@ -35,22 +32,23 @@ const dayLabels: Record<DayKey, string> = {
   SAT: "Sat",
   SUN: "Sun",
 };
-const xLabels = ["6a", "9a", "12p", "3p", "6p", "9p"];
+// 6 evenly-spaced labels across 16 bars (8a–11p)
+const xLabels = ["8a", "11a", "2p", "5p", "8p", "11p"];
 
 const summaries: Record<DayKey, { peak: string; vibe: string }> = {
-  MON: { peak: "11a–1p", vibe: "Steady working-day rush" },
-  TUE: { peak: "10a–2p", vibe: "Strong, broad lunch peak" },
-  WED: { peak: "10:30a–2p", vibe: "Smooth, balanced midday" },
-  THU: { peak: "11a–2p", vibe: "Confident pre-weekend buzz" },
-  FRI: { peak: "10a–2p", vibe: "Busiest day of the week" },
-  SAT: { peak: "9a–11a", vibe: "Short brunch spike, quiet after" },
-  SUN: { peak: "10a–1p", vibe: "Lightest day — easy seats" },
+  MON: { peak: "6p–8p", vibe: "Steady evening rush after work" },
+  TUE: { peak: "6p–8p", vibe: "Good evening flow" },
+  WED: { peak: "6p–8p", vibe: "Mid-week, calm morning, busy evening" },
+  THU: { peak: "6p–8p", vibe: "Pre-weekend buzz picks up" },
+  FRI: { peak: "6p–8p", vibe: "Busiest weekday evening" },
+  SAT: { peak: "6p–9p", vibe: "Busiest day — lively all day" },
+  SUN: { peak: "6p–8p", vibe: "Family visits, great evening crowd" },
 };
 
 export function PopularTimes() {
-  const [day, setDay] = useState<DayKey>("FRI");
+  const [day, setDay] = useState<DayKey>("SAT");
   const bars = data[day];
-  const liveIndex = day === "FRI" ? 5 : -1; // Friday live highlight ~11a
+  const liveIndex = day === "SAT" ? 10 : -1; // Saturday live highlight ~6p
 
   const peakIdx = bars.indexOf(Math.max(...bars));
   const max = Math.max(...bars, 1);
@@ -63,11 +61,11 @@ export function PopularTimes() {
             Visit rhythm
           </p>
           <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
-            When Orah hums.
+            When we're busiest.
           </h2>
           <p className="mt-3 text-sm text-foreground/70 sm:mt-4 sm:text-base">
-            A peek at how the café flows through the week — handy for picking
-            the perfect coffee window or a quiet lunch table.
+            A peek at how the shop flows through the week — handy for knowing
+            when to visit for the freshest sweets or a quieter stop.
           </p>
         </div>
 
@@ -96,13 +94,13 @@ export function PopularTimes() {
               ))}
             </div>
 
-            {day === "FRI" && (
+            {day === "SAT" && (
               <div className="flex items-center gap-2 text-[11px] text-ink-foreground/80 sm:text-xs">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
                 </span>
-                Live: less busy than usual
+                Sat evening — typically busy
               </div>
             )}
           </div>
@@ -169,7 +167,7 @@ export function PopularTimes() {
           </div>
 
           <p className="mt-5 text-[11px] text-ink-foreground/55 sm:text-xs">
-            People typically spend 20 min to 2 hr here.
+            Open daily · Closes 10 pm · Fresh sweets and snacks every day.
           </p>
         </motion.div>
       </div>

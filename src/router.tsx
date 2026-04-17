@@ -57,7 +57,7 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
 export const getRouter = () => {
   const router = createRouter({
     routeTree,
-    basepath: "/orah-cafe-perth",
+    basepath: "/Arvind-Canteen-Barharwa",
     context: {},
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,

@@ -1,22 +1,25 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Leaf, WheatOff } from "lucide-react";
+import { ArrowRight, Leaf } from "lucide-react";
 import { food, drinks, type MenuCategory, type MenuItem } from "@/data/menu";
-import heroCoffee from "@/assets/hero-coffee.jpg";
+import shopSign from "@/assets/Pasted image (35).png";
 
 export const Route = createFileRoute("/menu")({
   head: () => ({
     meta: [
-      { title: "Menu — Orah Cafe Perth | Breakfast, Lunch, Coffee" },
+      { title: "Menu — Arvind Canteen Barharwa | Sweets, Snacks & Bakery" },
       {
         name: "description",
         content:
-          "Browse the full Orah Cafe menu — eggs benny, buddha bowls, burgers, pasta, fresh salads, smoothies, specialty coffee and more. Perth CBD on Hay Street.",
+          "Browse Arvind Canteen's menu — traditional sweets like Gulab Jamun, Rasgulla, Kaju Katli, savory snacks, birthday cakes and bakery items in Barharwa, Jharkhand.",
       },
-      { property: "og:title", content: "Orah Cafe — Full Menu" },
-      { property: "og:description", content: "Breakfast, lunch, coffee and bakery in Perth CBD." },
-      { property: "og:image", content: heroCoffee },
+      { property: "og:title", content: "Arvind Canteen — Menu" },
+      {
+        property: "og:description",
+        content: "Sweets, snacks and bakery in Barharwa, Jharkhand. Since 1956.",
+      },
+      { property: "og:image", content: shopSign },
     ],
   }),
   component: MenuPage,
@@ -50,14 +53,18 @@ function MenuPage() {
     <div className="bg-background">
       {/* Header */}
       <section className="border-b border-border bg-cream">
-        <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">The menu</p>
+        <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 sm:py-16">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">Our menu</p>
           <h1 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl md:text-6xl">
-            Made fresh, served simply.
+            Made fresh, served with love.
           </h1>
           <p className="mt-4 max-w-2xl text-sm text-foreground/70 sm:text-base">
-            Brunch favourites, healthy bowls, comforting mains, and the kind of
-            coffee that makes you slow down. Prices in AUD.
+            Traditional Indian sweets, crispy savory snacks, bakery items and
+            custom birthday cakes. All vegetarian. All fresh. All from the heart
+            since 1956.
+          </p>
+          <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-sage/20 px-3 py-1.5 text-xs font-medium text-primary">
+            <Leaf className="h-3.5 w-3.5" /> 100% Vegetarian · Ask us for today's specials
           </p>
         </div>
       </section>
@@ -125,11 +132,20 @@ function MenuPage() {
               <CategoryBlock key={c.title} cat={c} />
             ))}
 
+            {/* Pricing note */}
+            <div className="mt-10 rounded-2xl bg-sage/10 border border-sage/20 p-5 text-sm text-foreground/70">
+              <p className="font-semibold text-foreground">Pricing</p>
+              <p className="mt-1">
+                Items range from ₹1–200 per person. Prices may vary by quantity
+                and season. Visit us or call for current rates and custom orders.
+              </p>
+            </div>
+
             {/* CTA */}
-            <div className="mt-20 rounded-3xl bg-cream p-8 text-center md:p-12">
-              <h3 className="font-display text-3xl">Hungry yet?</h3>
-              <p className="mt-2 text-foreground/70">
-                Pop in for a coffee, brunch or a quick lunch break.
+            <div className="mt-10 rounded-3xl bg-cream p-7 text-center md:p-12">
+              <h3 className="font-display text-2xl sm:text-3xl">Craving something sweet?</h3>
+              <p className="mt-2 text-sm text-foreground/70 sm:text-base">
+                Come visit us on Main Road — fresh sweets and snacks await.
               </p>
               <Link
                 to="/visit"
@@ -185,37 +201,17 @@ function ItemRow({ item }: { item: MenuItem }) {
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-1.5">
             <h3 className="font-display text-base leading-tight sm:text-lg">{item.name}</h3>
-            {item.dietary?.includes("V") && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-sage/30 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary">
-                <Leaf className="h-2.5 w-2.5" /> V
-              </span>
-            )}
-            {item.dietary?.includes("GF") && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-blush/40 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-foreground/80">
-                <WheatOff className="h-2.5 w-2.5" /> GF
-              </span>
-            )}
+            <span className="inline-flex items-center gap-1 rounded-full bg-sage/20 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-primary">
+              <Leaf className="h-2.5 w-2.5" /> Veg
+            </span>
           </div>
           {item.description && (
             <p className="mt-1 text-xs text-foreground/60 sm:text-sm">{item.description}</p>
           )}
-          {item.add && item.add.length > 0 && (
-            <p className="mt-1.5 text-[11px] text-foreground/45">
-              {item.add.map((a) => `+${a.label} $${a.price.toFixed(0)}`).join(" · ")}
-            </p>
-          )}
         </div>
-        <div className="shrink-0 text-right">
-          {item.price !== undefined ? (
-            <span className="font-display text-base font-semibold text-foreground sm:text-lg">
-              ${item.price.toFixed(2)}
-            </span>
-          ) : (
-            <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-foreground/60">
-              ask staff
-            </span>
-          )}
-        </div>
+        <span className="shrink-0 rounded-full bg-secondary px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-foreground/60 sm:px-3 sm:text-[11px]">
+          Ask us
+        </span>
       </div>
     </motion.div>
   );

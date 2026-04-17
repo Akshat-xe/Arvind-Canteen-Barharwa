@@ -9,7 +9,7 @@ function NotFoundComponent() {
         <h1 className="font-display text-7xl">404</h1>
         <h2 className="mt-4 text-xl font-semibold">Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          That page wandered off for a coffee. Let's get you back home.
+          That page wandered off for some sweets. Let's get you back home.
         </p>
         <div className="mt-6">
           <Link

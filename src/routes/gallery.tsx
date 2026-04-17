@@ -1,23 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { ScrollGallery } from "@/components/ScrollGallery";
-import interior from "@/assets/interior.jpg";
+import shopSign from "@/assets/Pasted image (35).png";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Orah Cafe Perth" },
+      { title: "Gallery — Arvind Canteen Barharwa | Sweets, Snacks & Bakery" },
       {
         name: "description",
         content:
-          "A look inside Orah Cafe, Perth — fresh brunch, beautiful coffee and a bright Hay Street space.",
+          "A look inside Arvind Canteen, Barharwa — fresh sweets, snacks, birthday cakes and bakery since 1956.",
       },
-      { property: "og:title", content: "Orah Cafe — Gallery" },
+      { property: "og:title", content: "Arvind Canteen — Gallery" },
       {
         property: "og:description",
-        content: "Brunch, coffee and café moments from Hay Street, Perth.",
+        content: "Sweets, snacks, cakes and shop moments from Barharwa, Jharkhand.",
       },
-      { property: "og:image", content: interior },
+      { property: "og:image", content: shopSign },
     ],
   }),
   component: GalleryPage,
@@ -27,7 +27,7 @@ function GalleryPage() {
   return (
     <div className="bg-background">
       {/* Header */}
-      <section className="relative overflow-hidden bg-cream py-14 md:py-20">
+      <section className="relative overflow-hidden bg-cream py-12 md:py-20">
         <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-blush/30 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-sage/25 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
@@ -35,10 +35,12 @@ function GalleryPage() {
             Gallery
           </p>
           <h1 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl md:text-6xl">
-            Every frame of <span className="italic">Orah</span>.
+            Every frame of{" "}
+            <span className="italic">Arvind Canteen</span>.
           </h1>
           <p className="mt-3 max-w-xl text-sm text-foreground/70 sm:text-base">
-            Brunch, coffee and café moments from Hay Street, Perth.
+            Sweets, snacks, cakes and bakery moments from Main Road, Barharwa.
+            Since 1956 — the taste that Jharkhand remembers.
           </p>
           <div className="mt-6 flex gap-3">
             <Link
@@ -52,7 +54,7 @@ function GalleryPage() {
       </section>
 
       {/* Gallery grid */}
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 md:py-24">
+      <section className="mx-auto max-w-7xl px-5 py-14 sm:px-6 md:py-20">
         <ScrollGallery />
       </section>
     </div>

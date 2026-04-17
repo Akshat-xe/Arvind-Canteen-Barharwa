@@ -21,7 +21,6 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll while mobile menu is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -39,18 +38,21 @@ export function SiteNav() {
         scrolled ? "py-2" : "py-3"
       }`}
     >
-      <div
-        className="relative z-10 mx-3 flex items-center justify-between gap-3 rounded-2xl px-3 py-2.5 transition-all duration-300 glass shadow-soft sm:mx-4 sm:gap-6 sm:rounded-3xl sm:px-5 sm:py-3 md:mx-auto md:max-w-7xl"
-      >
+      <div className="relative z-10 mx-3 flex items-center justify-between gap-3 rounded-2xl px-3 py-2.5 transition-all duration-300 glass shadow-soft sm:mx-4 sm:gap-6 sm:rounded-3xl sm:px-5 sm:py-3 md:mx-auto md:max-w-7xl">
         <Link
           to="/"
           className="flex items-center gap-2 active:scale-95 transition-transform"
           onClick={() => setOpen(false)}
         >
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground font-display text-lg">
-            o
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground font-display text-base font-bold">
+            AC
           </span>
-          <span className="font-display text-lg tracking-tight sm:text-xl">Orah Cafe</span>
+          <div className="flex flex-col leading-tight">
+            <span className="font-display text-sm font-semibold tracking-tight sm:text-base">
+              Arvind Canteen
+            </span>
+            <span className="hidden text-[10px] text-foreground/55 sm:block">Since 1956</span>
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -68,7 +70,7 @@ export function SiteNav() {
 
         <div className="hidden items-center gap-2 md:flex">
           <a
-            href="/orah-cafe-perth/visit#amenities"
+            href="/Arvind-Canteen-Barharwa/visit#amenities"
             className="rounded-xl px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
           >
             Amenities
@@ -106,9 +108,7 @@ export function SiteNav() {
         />
         <div
           className={`relative mx-3 mt-2 origin-top rounded-2xl bg-card p-3 shadow-lift transition-all duration-200 sm:mx-4 ${
-            open
-              ? "scale-100 opacity-100"
-              : "pointer-events-none scale-95 opacity-0"
+            open ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
           }`}
         >
           <div className="flex flex-col gap-1">
@@ -124,7 +124,7 @@ export function SiteNav() {
               </Link>
             ))}
             <a
-              href="/orah-cafe-perth/visit#amenities"
+              href="/Arvind-Canteen-Barharwa/visit#amenities"
               onClick={() => setOpen(false)}
               className="rounded-xl px-4 py-3 text-base font-semibold text-foreground/90 transition active:scale-[0.98] active:bg-cream hover:bg-secondary"
             >

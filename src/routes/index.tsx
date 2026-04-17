@@ -4,41 +4,44 @@ import {
   Star,
   MapPin,
   Phone,
-  Wifi,
-  Trees,
-  Coffee,
-  Croissant,
-  Salad,
+  UtensilsCrossed,
+  Cake,
+  Cookie,
   Clock,
   ArrowRight,
   Sparkles,
   Heart,
-  Leaf,
+  ShoppingBag,
 } from "lucide-react";
-import heroCoffee from "@/assets/hero-coffee.jpg";
-import interior from "@/assets/interior.jpg";
-import barista from "@/assets/barista.jpg";
-import { highlights, business } from "@/data/menu";
+import { highlights, business, shopInterior, shopInterior2 } from "@/data/menu";
 import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import { PopularTimes } from "@/components/PopularTimes";
+import shopSign from "@/assets/Pasted image (35).png";
+import gulabJamun from "@/assets/Pasted image (13).png";
+import barfi from "@/assets/Pasted image (4).png";
+import creamRolls from "@/assets/Pasted image (5).png";
+import roseSweets from "@/assets/Pasted image (50).png";
+import flowerPeda from "@/assets/Pasted image (8).png";
+import motichoorLadoo from "@/assets/Pasted image (18).png";
+import cakeDisplay from "@/assets/Pasted image.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Orah Cafe — Bright Perth Café on Hay Street" },
+      { title: "Arvind Canteen Barharwa — Sweets, Snacks & Bakery Since 1956" },
       {
         name: "description",
         content:
-          "Fresh coffee, honest food and a bright Perth café made for mornings, lunch breaks and easy catch-ups on Hay Street.",
+          "Arvind Canteen, Barharwa's most trusted sweet shop since 1956. Fresh sweets, savory snacks and bakery — 70 years of taste and legacy on Main Road.",
       },
-      { property: "og:title", content: "Orah Cafe — Bright Perth Café on Hay Street" },
+      { property: "og:title", content: "Arvind Canteen Barharwa — Since 1956" },
       {
         property: "og:description",
         content:
-          "Breakfast, brunch and lunch in Perth CBD. 4.9★ on Google. Dine-in and takeaway on Hay Street.",
+          "70 Years of Trust & Legacy. Fresh sweets, snacks and bakery in Barharwa, Jharkhand. 4.3★ on Google.",
       },
-      { property: "og:image", content: heroCoffee },
-      { name: "twitter:image", content: heroCoffee },
+      { property: "og:image", content: shopSign },
+      { name: "twitter:image", content: shopSign },
     ],
   }),
   component: HomePage,
@@ -66,7 +69,7 @@ function Hero() {
       <div className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-blush/40 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-sage/30 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-6 md:grid-cols-2 md:items-center md:py-24">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -74,27 +77,27 @@ function Hero() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1.5 text-xs font-medium text-foreground/80 backdrop-blur"
           >
-            <MapPin className="h-3.5 w-3.5" /> Hay Street, Perth CBD
+            <MapPin className="h-3.5 w-3.5" /> Main Road, near UCO Bank, Barharwa
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05 }}
-            className="mt-5 font-display text-5xl leading-[1.05] tracking-tight md:text-7xl"
+            className="mt-5 font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Fresh coffee.<br />
-            <span className="italic text-primary">Honest</span> food.
+            Fresh sweets.<br />
+            <span className="italic text-primary">70 years</span> of trust.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="mt-5 max-w-lg text-lg text-foreground/70"
+            className="mt-5 max-w-lg text-base text-foreground/70 sm:text-lg"
           >
-            A bright Perth café made for mornings, lunch breaks and easy catch-ups.
-            Brunch all day, healthy bowls, gorgeous coffee — right in the city.
+            Arvind Canteen — Barharwa's favourite sweet shop since 1956.
+            Traditional mithai, crispy snacks, fresh bakery, and birthday cakes.
           </motion.p>
 
           <motion.div
@@ -129,10 +132,12 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-10 flex flex-wrap items-center gap-3 text-xs"
           >
-            <Chip icon={<Star className="h-3.5 w-3.5 fill-current text-accent" />}>4.9 Google Rating</Chip>
-            <Chip icon={<Coffee className="h-3.5 w-3.5" />}>Great Coffee</Chip>
-            <Chip icon={<Croissant className="h-3.5 w-3.5" />}>Breakfast & Lunch</Chip>
-            <Chip icon={<MapPin className="h-3.5 w-3.5" />}>Perth CBD</Chip>
+            <Chip icon={<Star className="h-3.5 w-3.5 fill-current text-accent" />}>
+              4.3 Google Rating
+            </Chip>
+            <Chip icon={<Cake className="h-3.5 w-3.5" />}>Birthday Cakes</Chip>
+            <Chip icon={<Cookie className="h-3.5 w-3.5" />}>Fresh Sweets</Chip>
+            <Chip icon={<MapPin className="h-3.5 w-3.5" />}>Barharwa, JH</Chip>
           </motion.div>
         </div>
 
@@ -144,11 +149,11 @@ function Hero() {
         >
           <div className="relative overflow-hidden rounded-[2.5rem] shadow-lift">
             <img
-              src={heroCoffee}
-              alt="Flat white coffee with latte art and a flaky croissant on a warm cream linen tablecloth"
+              src={shopSign}
+              alt="Arvind Canteen Since 1956 — Sweets, Snacks, Bakery, Barharwa"
               width={1600}
               height={1200}
-              className="aspect-[4/5] w-full object-cover md:aspect-[5/6]"
+              className="aspect-[4/5] w-full object-cover object-center md:aspect-[5/6]"
             />
           </div>
 
@@ -162,8 +167,8 @@ function Hero() {
                 <Star className="h-5 w-5 fill-current" />
               </div>
               <div>
-                <p className="text-2xl font-semibold leading-none">4.9</p>
-                <p className="text-xs text-foreground/60">440 Google reviews</p>
+                <p className="text-2xl font-semibold leading-none">4.3</p>
+                <p className="text-xs text-foreground/60">152 Google reviews</p>
               </div>
             </div>
           </motion.div>
@@ -173,8 +178,8 @@ function Hero() {
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -right-4 bottom-10 hidden rounded-3xl bg-ink p-4 text-ink-foreground shadow-lift md:block"
           >
-            <p className="text-xs uppercase tracking-wider text-ink-foreground/60">Open now</p>
-            <p className="mt-1 font-display text-lg">Coffee · Brunch</p>
+            <p className="text-xs uppercase tracking-wider text-ink-foreground/60">Est.</p>
+            <p className="mt-1 font-display text-lg">Since 1956</p>
           </motion.div>
         </motion.div>
       </div>
@@ -192,16 +197,16 @@ function Chip({ icon, children }: { icon: React.ReactNode; children: React.React
 
 function TrustStrip() {
   const items = [
-    { icon: <Coffee className="h-5 w-5" />, label: "Specialty coffee" },
-    { icon: <Salad className="h-5 w-5" />, label: "Fresh & healthy" },
-    { icon: <Croissant className="h-5 w-5" />, label: "All-day brunch" },
-    { icon: <Leaf className="h-5 w-5" />, label: "Vegetarian options" },
-    { icon: <Wifi className="h-5 w-5" />, label: "Free Wi-Fi" },
-    { icon: <Trees className="h-5 w-5" />, label: "Outdoor seating" },
+    { icon: <Cake className="h-5 w-5" />, label: "Fresh sweets daily" },
+    { icon: <Cookie className="h-5 w-5" />, label: "Crispy savory snacks" },
+    { icon: <UtensilsCrossed className="h-5 w-5" />, label: "Bakery & cakes" },
+    { icon: <ShoppingBag className="h-5 w-5" />, label: "Takeaway & dine-in" },
+    { icon: <Star className="h-5 w-5" />, label: "Since 1956" },
+    { icon: <Heart className="h-5 w-5" />, label: "Vegetarian only" },
   ];
   return (
     <section className="border-y border-border/60 bg-card">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-10 gap-y-4 px-6 py-6 text-sm text-foreground/70">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-4 px-5 py-5 text-sm text-foreground/70 sm:px-6 sm:py-6">
         {items.map((it) => (
           <div key={it.label} className="flex items-center gap-2">
             <span className="text-primary">{it.icon}</span>
@@ -215,17 +220,19 @@ function TrustStrip() {
 
 function Highlights() {
   return (
-    <section className="bg-background py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-background py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">Most loved at Orah</p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight md:text-5xl">
-              The dishes locals reorder.
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">
+              Most loved at Arvind Canteen
+            </p>
+            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
+              The sweets people reorder.
             </h2>
             <p className="mt-4 text-foreground/70">
-              A curated handful of the things people come back for — from our
-              steak sandwich to the buddha bowl, with a long black on the side.
+              Fresh every day — from our Gulab Jamun to birthday cakes, with chai
+              on the side. 70 years of taste in every bite.
             </p>
           </div>
           <Link
@@ -236,15 +243,15 @@ function Highlights() {
           </Link>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
-          {highlights.map((h, i) => (
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+          {highlights.slice(0, 6).map((h, i) => (
             <motion.article
               key={h.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-              className="group overflow-hidden rounded-3xl bg-card shadow-soft transition hover:shadow-lift"
+              className="group overflow-hidden rounded-2xl bg-card shadow-soft transition hover:shadow-lift sm:rounded-3xl"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -255,20 +262,13 @@ function Highlights() {
                   loading="lazy"
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
-                <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-foreground backdrop-blur">
+                <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-semibold text-foreground backdrop-blur sm:left-4 sm:top-4 sm:px-3 sm:text-xs">
                   <Sparkles className="h-3 w-3 text-primary" /> {h.tag}
                 </span>
               </div>
-              <div className="flex items-start justify-between gap-2 p-3 sm:gap-4 sm:p-5">
-                <div className="min-w-0">
-                  <h3 className="font-display text-base leading-snug sm:text-xl">{h.name}</h3>
-                  <p className="mt-1 hidden text-sm text-foreground/65 sm:block">{h.blurb}</p>
-                </div>
-                {h.price !== undefined && (
-                  <span className="shrink-0 rounded-full bg-secondary px-2 py-1 text-xs font-semibold text-foreground sm:px-3 sm:text-sm">
-                    ${h.price.toFixed(2)}
-                  </span>
-                )}
+              <div className="p-3 sm:p-5">
+                <h3 className="font-display text-sm leading-snug sm:text-xl">{h.name}</h3>
+                <p className="mt-1 hidden text-sm text-foreground/65 sm:block">{h.blurb}</p>
               </div>
             </motion.article>
           ))}
@@ -280,27 +280,43 @@ function Highlights() {
 
 function WhyLocals() {
   const reasons = [
-    { icon: <Coffee className="h-6 w-6" />, title: "Coffee worth the walk", body: "Specialty beans pulled by people who care. Smooth long blacks, silky flat whites, the lot." },
-    { icon: <Salad className="h-6 w-6" />, title: "Fresh, fast, honest", body: "Buddha bowls, vibrant salads and warm grain bowls — quick lunch, no compromise." },
-    { icon: <Croissant className="h-6 w-6" />, title: "Brunch all day", body: "Eggs Benny Benny, smashed avo, bacon rolls — whenever the craving hits." },
-    { icon: <Heart className="h-6 w-6" />, title: "A regular's welcome", body: "Friendly faces, easy mornings, and tables that feel like yours." },
+    {
+      icon: <Cake className="h-6 w-6" />,
+      title: "Fresh every single day",
+      body: "Sweets made fresh daily — never stale, always authentic. Customers notice it in every bite.",
+    },
+    {
+      icon: <Star className="h-6 w-6" />,
+      title: "70 years of trust",
+      body: "Since 1956, Arvind Canteen has been the go-to sweet shop for Barharwa's families.",
+    },
+    {
+      icon: <Cookie className="h-6 w-6" />,
+      title: "Sweets, snacks & bakery",
+      body: "Traditional mithai, crispy snacks, bakery items, and birthday cakes — all under one roof.",
+    },
+    {
+      icon: <Heart className="h-6 w-6" />,
+      title: "Warm, friendly service",
+      body: "A welcoming shop where everyone gets a smile and sweets taste like they were made with care.",
+    },
   ];
   return (
-    <section className="bg-cream py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center">
+    <section className="bg-cream py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-12">
           <div className="relative">
             <img
-              src={interior}
-              alt="Bright Orah Cafe interior with warm wood tables, brass pendants and indoor plants"
+              src={shopInterior}
+              alt="Arvind Canteen shop interior with sweets counter and display"
               width={1600}
               height={1200}
               loading="lazy"
               className="aspect-[4/5] w-full rounded-[2.5rem] object-cover shadow-lift"
             />
             <img
-              src={barista}
-              alt="Barista pouring latte art into a white cup"
+              src={shopInterior2}
+              alt="Arvind Canteen snacks and bakery counter"
               width={800}
               height={1000}
               loading="lazy"
@@ -309,17 +325,19 @@ function WhyLocals() {
           </div>
 
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">Why locals love Orah</p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight md:text-5xl">
-              The little Hay Street ritual.
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">
+              Why Barharwa loves Arvind Canteen
+            </p>
+            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
+              The Main Road ritual.
             </h2>
             <p className="mt-4 max-w-lg text-foreground/70">
-              Tucked into the city, Orah is the kind of place where the office
-              regulars know their order, students stay an extra hour, and a quick
-              coffee turns into the best part of the day.
+              Tucked on Main Road near UCO Bank, this is the kind of place where
+              regulars know exactly what they want, kids save their pocket money
+              for, and no celebration is complete without a box of sweets.
             </p>
 
-            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {reasons.map((r) => (
                 <div key={r.title} className="rounded-2xl bg-card p-5 shadow-soft">
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-sage/30 text-primary">
@@ -337,81 +355,93 @@ function WhyLocals() {
   );
 }
 
-const orahTestimonials = [
+const arvindTestimonials = [
   {
-    quote: "Amazingly priced and incredibly tasty. Easily my favourite Hay Street stop.",
-    name: "Maddie",
+    quote:
+      "Sweets are always fresh, perfectly balanced in taste. Snacks are crispy and flavorful. Clean shop, friendly staff. A must visit!",
+    name: "Vishal Thakur",
+    designation: "Regular Customer",
+    src: gulabJamun,
+  },
+  {
+    quote:
+      "Best sweet shop ever! Fresh, tasty sweets and amazing snacks. Highly recommended to everyone in Barharwa.",
+    name: "BYT JerryOP",
+    designation: "Barharwa Local",
+    src: cakeDisplay,
+  },
+  {
+    quote:
+      "Loved the Motichoor Ladoo and Malai Barfi — soft, fresh, traditional flavor is rich. Freshness and quality noticeable in every bite.",
+    name: "Ayush Rastogi",
+    designation: "Sweet Lover",
+    src: barfi,
+  },
+  {
+    quote:
+      "Gulab Jamun perfectly soaked, Rasgulla melted in mouth, Kaju Katli rich and smooth. Each item tasted freshly made.",
+    name: "Local Customer",
     designation: "Regular",
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop",
+    src: flowerPeda,
   },
   {
-    quote: "The salads are fresh, generous and full of flavour. Great spot for a working lunch.",
-    name: "James",
-    designation: "Local",
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
+    quote:
+      "Must-visit for sweet lovers. Aroma, décor and friendly service create a wonderful atmosphere. Best in town!",
+    name: "Ansh Raj",
+    designation: "College Student",
+    src: roseSweets,
   },
   {
-    quote: "Friendly staff, lovely coffee, and a vibe that makes you want to stay all morning.",
-    name: "Aiko",
+    quote:
+      "Warm aroma of freshly made delicacies. Cozy, inviting atmosphere. Works for a quick treat or full shopping. Never disappoints.",
+    name: "Sumit Kumar",
+    designation: "Regular Visitor",
+    src: shopInterior as string,
+  },
+  {
+    quote: "Great variety of sweets, super fresh and right sweetness. Easily the best quality sweet shop in Barharwa.",
+    name: "Journal Roy",
     designation: "Visitor",
-    src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop",
+    src: motichoorLadoo,
   },
   {
-    quote: "A little hidden gem in the city. Quick service even on the busiest mornings.",
-    name: "Priya",
-    designation: "CBD Worker",
-    src: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop",
-  },
-  {
-    quote: "Best eggs benny in Perth, full stop. The hollandaise is absolutely silky.",
-    name: "Tom",
-    designation: "Brunch Enthusiast",
-    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
-  },
-  {
-    quote: "Perfect study spot — good Wi-Fi, great chai latte, and they never rush you out.",
-    name: "Sophie",
-    designation: "UWA Student",
-    src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop",
-  },
-  {
-    quote: "The Korean Bulgogi Pasta is absolutely unreal. My new Friday tradition.",
-    name: "Min",
-    designation: "Perth Local",
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
-  },
-  {
-    quote: "Popped in for a quick coffee and ended up staying two hours. No regrets at all.",
-    name: "Lucy",
-    designation: "City Explorer",
-    src: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=400&auto=format&fit=crop",
+    quote:
+      "Food is delicious, top-notch quality. They provide the best service. Clean, cozy atmosphere. Highly recommend!",
+    name: "Yatish Kumar",
+    designation: "Regular",
+    src: creamRolls,
   },
 ];
 
 function TestimonialsSection() {
   return (
-    <section className="bg-background py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+    <section className="bg-background py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">What people say</p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight md:text-5xl">
-              Loved by Perth.
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">
+              What people say
+            </p>
+            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
+              Loved by Barharwa.
             </h2>
           </div>
           <div className="inline-flex items-center gap-3 rounded-2xl bg-secondary px-5 py-4">
             <div className="flex">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-current text-accent" />
+                <Star
+                  key={i}
+                  className={`h-5 w-5 ${i < 4 ? "fill-current text-accent" : "fill-current text-accent/40"}`}
+                />
               ))}
             </div>
             <div>
-              <p className="text-2xl font-semibold leading-none">4.9</p>
-              <p className="text-xs text-foreground/60">440 Google reviews</p>
+              <p className="text-2xl font-semibold leading-none">4.3</p>
+              <p className="text-xs text-foreground/60">152 Google reviews</p>
             </div>
           </div>
         </div>
-        <CircularTestimonials testimonials={orahTestimonials} />
+        <CircularTestimonials testimonials={arvindTestimonials} />
       </div>
     </section>
   );
@@ -419,55 +449,58 @@ function TestimonialsSection() {
 
 function Visit() {
   return (
-    <section className="bg-background py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-background py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <div className="grid gap-10 overflow-hidden rounded-[2.5rem] bg-card shadow-soft md:grid-cols-2">
-          <div className="p-8 md:p-12">
+          <div className="p-6 sm:p-8 md:p-12">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">Visit us</p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight md:text-5xl">
-              Right on Hay Street.
+            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
+              On Main Road, Barharwa.
             </h2>
             <p className="mt-4 text-foreground/70">
-              Easy to find, easy to settle in. Pop in for a quick takeaway coffee
-              or stay a while.
+              Easy to find — near UCO Bank, in front of Patanjali. Pop in for sweets,
+              snacks, or a birthday cake.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <div className="mt-8 space-y-3">
               <a
                 href={business.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-start gap-3 rounded-2xl bg-secondary p-4 transition active:scale-[0.99] hover:bg-cream"
               >
-                <MapPin className="mt-1 h-5 w-5 text-primary" />
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
                 <div>
-                  <p className="font-semibold">Orah Cafe</p>
-                  <p className="text-sm text-foreground/65">Suite 3, 459 Hay Street</p>
-                  <p className="text-sm text-foreground/60">Perth WA 6000, Australia</p>
+                  <p className="font-semibold">Arvind Canteen</p>
+                  <p className="text-sm text-foreground/65">Main Road, near UCO Bank</p>
+                  <p className="text-sm text-foreground/60">Barharwa, Jharkhand 816101</p>
                 </div>
               </a>
               <a
                 href={business.phoneHref}
                 className="flex items-start gap-3 rounded-2xl bg-secondary p-4 transition active:scale-[0.99] hover:bg-cream"
               >
-                <Phone className="mt-1 h-5 w-5 text-primary" />
+                <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" />
                 <div>
                   <p className="font-semibold">{business.phone}</p>
                   <p className="text-sm text-foreground/60">Tap to call</p>
                 </div>
               </a>
               <div className="flex items-start gap-3 rounded-2xl bg-secondary p-4">
-                <Clock className="mt-1 h-5 w-5 text-primary" />
+                <Clock className="mt-1 h-5 w-5 shrink-0 text-primary" />
                 <div>
-                  <p className="font-semibold">Open daily for breakfast & lunch</p>
-                  <p className="text-sm text-foreground/60">Coffee from early — pop in any time.</p>
+                  <p className="font-semibold">Open daily · Closes 10 pm</p>
+                  <p className="text-sm text-foreground/60">Fresh sweets and snacks every day.</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-2 text-xs">
-              {["Dine-in", "Takeaway", "Free Wi-Fi", "Outdoor seating", "Vegetarian", "Vegan-friendly", "Plenty of parking"].map((t) => (
-                <span key={t} className="rounded-full border border-border bg-background px-3 py-1.5 font-medium text-foreground/70">
+            <div className="mt-5 flex flex-wrap gap-2 text-xs">
+              {["Dine-in", "Takeaway", "Vegetarian only", "Cash only", "Free parking", "Good for kids"].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-border bg-background px-3 py-1.5 font-medium text-foreground/70"
+                >
                   {t}
                 </span>
               ))}
@@ -488,18 +521,12 @@ function Visit() {
               >
                 View menu
               </Link>
-              <a
-                href="/orah-cafe-perth/visit#amenities"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition active:scale-95 hover:bg-secondary"
-              >
-                See all amenities
-              </a>
             </div>
           </div>
 
-          <div className="relative min-h-[360px]">
+          <div className="relative min-h-[320px]">
             <iframe
-              title="Orah Cafe location — satellite view"
+              title="Arvind Canteen location — Barharwa, Jharkhand"
               src={business.mapsEmbed}
               className="absolute inset-0 h-full w-full border-0"
               loading="eager"
@@ -515,29 +542,52 @@ function Visit() {
 
 function FAQ() {
   const faqs = [
-    { q: "Do you offer dine-in and takeaway?", a: "Yes — both. Settle in at a table, or grab your coffee and food to go." },
-    { q: "Do you have vegetarian and vegan-friendly options?", a: "Plenty. From the Orah Buddha Bowl to Very Much Avocado, Mushroom World War and Nudely Noodle, there's lots to love." },
-    { q: "Do you serve breakfast and lunch?", a: "All day, every day. Brunch classics in the morning and hearty lunches through to early afternoon." },
-    { q: "Is Orah good for coffee and a quick work session?", a: "Absolutely. Free Wi-Fi, friendly staff and a calm city vibe make it easy to get an hour in." },
-    { q: "Where exactly are you in Perth CBD?", a: "Suite 3/459 Hay Street, right in the heart of the city." },
-    { q: "Do you have outdoor seating?", a: "Yes — perfect for a sunny morning long black." },
-    { q: "Can I get a quick takeaway coffee?", a: "Of course. Most coffees are ready in just a few minutes." },
+    {
+      q: "What do you sell at Arvind Canteen?",
+      a: "We sell traditional Indian sweets (mithai), savory snacks like samosa and golgappa, bakery items, and custom birthday cakes. All vegetarian.",
+    },
+    {
+      q: "Are the sweets made fresh?",
+      a: "Yes — sweets and snacks are made fresh daily. Customers consistently praise the freshness and authentic taste.",
+    },
+    {
+      q: "Do you make custom birthday cakes?",
+      a: "Yes, we make custom celebration cakes. Come in or call us to place your order in advance.",
+    },
+    {
+      q: "Where exactly is Arvind Canteen?",
+      a: "We're on Main Road, near UCO Bank, in front of Patanjali, Barharwa, Jharkhand 816101.",
+    },
+    {
+      q: "What are your opening hours?",
+      a: "We are open daily and close at 10 pm. Come in anytime for fresh sweets, snacks, or a quick bite.",
+    },
+    {
+      q: "Do you offer takeaway?",
+      a: "Yes — takeaway and dine-in both available. We also offer delivery and catering for events.",
+    },
+    {
+      q: "What payment methods do you accept?",
+      a: "We currently accept cash only.",
+    },
   ];
   return (
-    <section className="bg-cream py-24">
-      <div className="mx-auto max-w-3xl px-6">
+    <section className="bg-cream py-16 md:py-24">
+      <div className="mx-auto max-w-3xl px-5 sm:px-6">
         <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">FAQ</p>
-        <h2 className="mt-3 font-display text-4xl tracking-tight md:text-5xl">
+        <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
           Good things to know.
         </h2>
         <div className="mt-10 divide-y divide-border rounded-3xl bg-card shadow-soft">
           {faqs.map((f) => (
-            <details key={f.q} className="group p-6">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg">
+            <details key={f.q} className="group p-5 sm:p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base sm:text-lg">
                 {f.q}
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-secondary text-foreground/60 transition group-open:rotate-45">+</span>
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-secondary text-foreground/60 transition group-open:rotate-45">
+                  +
+                </span>
               </summary>
-              <p className="mt-3 text-foreground/70">{f.a}</p>
+              <p className="mt-3 text-sm text-foreground/70 sm:text-base">{f.a}</p>
             </details>
           ))}
         </div>

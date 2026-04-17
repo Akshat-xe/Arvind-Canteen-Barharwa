@@ -8,26 +8,27 @@ import {
   ArrowRight,
   ExternalLink,
   Navigation,
+  Mail,
 } from "lucide-react";
 import { business, amenityGroups } from "@/data/menu";
-import interior from "@/assets/interior.jpg";
+import shopSign from "@/assets/Pasted image (35).png";
 
 export const Route = createFileRoute("/visit")({
   head: () => ({
     meta: [
-      { title: "Visit Orah Cafe — Hay Street, Perth CBD" },
+      { title: "Visit Arvind Canteen — Main Road, Barharwa, Jharkhand" },
       {
         name: "description",
         content:
-          "Find Orah Cafe at Suite 3, 459 Hay St, Perth WA 6000. Phone, directions, hours, dine-in and takeaway.",
+          "Find Arvind Canteen at Main Road, near UCO Bank, Barharwa, Jharkhand 816101. Phone, directions, hours, dine-in and takeaway.",
       },
-      { property: "og:title", content: "Visit Orah Cafe — Hay Street, Perth CBD" },
+      { property: "og:title", content: "Visit Arvind Canteen — Barharwa, Jharkhand" },
       {
         property: "og:description",
         content:
-          "Suite 3, 459 Hay St, Perth WA 6000. Dine-in & takeaway. Free Wi-Fi, outdoor seating.",
+          "Main Road, near UCO Bank, Barharwa, Jharkhand 816101. Open daily till 10 pm. Dine-in & takeaway.",
       },
-      { property: "og:image", content: interior },
+      { property: "og:image", content: shopSign },
     ],
   }),
   component: VisitPage,
@@ -46,7 +47,7 @@ function VisitPage() {
   return (
     <div className="bg-background">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-cream py-14 md:py-20">
+      <section className="relative overflow-hidden bg-cream py-12 md:py-20">
         <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-blush/30 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-sage/30 blur-3xl" />
         <motion.div
@@ -59,17 +60,17 @@ function VisitPage() {
             Find us
           </p>
           <h1 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl md:text-6xl">
-            Hay Street, Perth CBD.
+            Main Road, Barharwa.
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-foreground/70 sm:text-base">
-            Tucked into the heart of the city — easy to walk to, easy to settle
-            in, easy to grab a coffee on the go.
+            Near UCO Bank, in front of Patanjali — easy to find, easy to settle
+            in, easy to grab sweets on the go.
           </p>
         </motion.div>
       </section>
 
       {/* Main */}
-      <section className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16">
+      <section className="mx-auto max-w-7xl px-5 py-10 sm:px-6 sm:py-16">
         <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
           {/* Info column */}
           <motion.div
@@ -88,14 +89,13 @@ function VisitPage() {
                 <MapPin className="h-6 w-6" />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-[11px] uppercase tracking-wider text-foreground/55">
-                  Address
+                <p className="text-[11px] uppercase tracking-wider text-foreground/55">Address</p>
+                <p className="mt-1 font-display text-lg sm:text-xl">Arvind Canteen</p>
+                <p className="text-sm text-foreground/75">Main Road, near UCO Bank</p>
+                <p className="text-sm text-foreground/65">
+                  In front of Patanjali, Barharwa
                 </p>
-                <p className="mt-1 font-display text-lg sm:text-xl">Orah Cafe</p>
-                <p className="text-sm text-foreground/75">
-                  Suite 3, 459 Hay Street
-                </p>
-                <p className="text-sm text-foreground/65">Perth WA 6000, Australia</p>
+                <p className="text-sm text-foreground/60">Jharkhand 816101</p>
                 <p className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-primary">
                   Open in Google Maps <ExternalLink className="h-3.5 w-3.5" />
                 </p>
@@ -112,7 +112,22 @@ function VisitPage() {
               <div>
                 <p className="text-[11px] uppercase tracking-wider text-foreground/55">Call</p>
                 <p className="mt-1 font-display text-lg sm:text-xl">{business.phone}</p>
-                <p className="text-sm text-foreground/65">Tap to call from your phone</p>
+                <p className="text-sm text-foreground/65">{business.phone2}</p>
+                <p className="text-sm text-foreground/55">Tap to call from your phone</p>
+              </div>
+            </a>
+
+            <a
+              href={`mailto:${business.email}`}
+              className="flex items-start gap-4 rounded-2xl bg-card p-5 shadow-soft transition active:scale-[0.99] hover:shadow-lift sm:rounded-3xl sm:p-6"
+            >
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-secondary text-primary">
+                <Mail className="h-6 w-6" />
+              </span>
+              <div>
+                <p className="text-[11px] uppercase tracking-wider text-foreground/55">Email</p>
+                <p className="mt-1 font-display text-base sm:text-lg break-all">{business.email}</p>
+                <p className="text-sm text-foreground/55">Tap to email us</p>
               </div>
             </a>
 
@@ -124,7 +139,7 @@ function VisitPage() {
                 <p className="text-[11px] uppercase tracking-wider text-foreground/55">Hours</p>
                 <p className="mt-1 font-display text-lg sm:text-xl">Open daily</p>
                 <p className="text-sm text-foreground/65">
-                  Breakfast, brunch & lunch — coffee from early.
+                  Fresh sweets and snacks — closes at 10 pm.
                 </p>
               </div>
             </div>
@@ -147,7 +162,7 @@ function VisitPage() {
             </div>
           </motion.div>
 
-          {/* Map column — instant load, taller, satellite by default */}
+          {/* Map column */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -155,14 +170,13 @@ function VisitPage() {
             className="relative overflow-hidden rounded-3xl bg-card shadow-lift lg:col-span-3"
           >
             <iframe
-              title="Orah Cafe — Hay Street, Perth (satellite view)"
+              title="Arvind Canteen — Main Road, Barharwa, Jharkhand"
               src={business.mapsEmbed}
-              className="block h-[420px] w-full border-0 sm:h-[520px] lg:h-full lg:min-h-[560px]"
+              className="block h-[380px] w-full border-0 sm:h-[500px] lg:h-full lg:min-h-[520px]"
               loading="eager"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
-            {/* Floating action overlay */}
             <a
               href={business.mapsUrl}
               target="_blank"
@@ -176,18 +190,18 @@ function VisitPage() {
       </section>
 
       {/* Amenities */}
-      <section id="amenities" className="scroll-mt-20 bg-cream py-16 md:py-20">
+      <section id="amenities" className="scroll-mt-20 bg-cream py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-8 max-w-2xl md:mb-10">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary sm:text-sm">
               What's on offer
             </p>
             <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
-              Everything you'd want from a city café.
+              Everything you'd want from a sweet shop.
             </h2>
             <p className="mt-3 text-sm text-foreground/70 sm:text-base">
               The little things that make a visit easy — and the bigger things
-              that keep locals coming back.
+              that keep locals coming back for 70 years.
             </p>
           </div>
 
