@@ -1,6 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Star, Wifi, Trees, ArrowUpRight, Instagram, Facebook } from "lucide-react";
-import { business, highlights } from "@/data/menu";
+import { business, food } from "@/data/menu";
+
+const mostExpensive = food
+  .flatMap((c) => c.items)
+  .filter((i) => i.price !== undefined)
+  .sort((a, b) => (b.price ?? 0) - (a.price ?? 0))
+  .slice(0, 6);
 
 export function SiteFooter() {
   return (
@@ -56,9 +62,15 @@ export function SiteFooter() {
           <div className="md:col-span-3">
             <h4 className="font-display text-lg">Most Loved</h4>
             <ul className="mt-4 space-y-2 text-sm text-ink-foreground/75">
-              {highlights.slice(0, 6).map((h) => (
-                <li key={h.name} className="hover:text-ink-foreground transition-colors">
-                  {h.name}
+              {mostExpensive.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to="/menu"
+                    className="flex items-center justify-between gap-2 transition-colors hover:text-ink-foreground"
+                  >
+                    <span>{item.name}</span>
+                    <span className="text-xs text-ink-foreground/40">${item.price?.toFixed(2)}</span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -142,8 +154,13 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-ink-foreground/55 md:flex-row md:items-center">
+        <div className="mt-12 border-t border-white/10 pt-6 text-xs text-ink-foreground/55">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Orah Cafe. Made with care in Perth.</p>
+          <p>
+            Web Developer · Web Designer:{" "}
+            <span className="font-medium text-ink-foreground/75">Akshat Kumar</span>
+          </p>
           <div className="flex flex-wrap gap-4">
             <Link to="/menu" className="hover:text-ink-foreground">
               Menu
@@ -162,6 +179,7 @@ export function SiteFooter() {
             >
               Directions
             </a>
+          </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   MapPin,
@@ -33,6 +34,15 @@ export const Route = createFileRoute("/visit")({
 });
 
 function VisitPage() {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const el = document.getElementById(hash);
+    if (el) {
+      setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 120);
+    }
+  }, []);
+
   return (
     <div className="bg-background">
       {/* Hero */}
@@ -166,7 +176,7 @@ function VisitPage() {
       </section>
 
       {/* Amenities */}
-      <section id="amenities" className="bg-cream py-16 md:py-20">
+      <section id="amenities" className="scroll-mt-20 bg-cream py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-8 max-w-2xl md:mb-10">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary sm:text-sm">

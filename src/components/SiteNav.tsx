@@ -10,8 +10,6 @@ const links = [
   { to: "/visit" as const, label: "Visit" },
 ];
 
-const amenitiesHref = "/orah-cafe-perth/visit#amenities";
-
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -42,9 +40,7 @@ export function SiteNav() {
       }`}
     >
       <div
-        className={`mx-3 flex items-center justify-between gap-3 rounded-2xl px-3 py-2.5 transition-all duration-300 sm:mx-4 sm:gap-6 sm:rounded-3xl sm:px-5 sm:py-3 md:mx-auto md:max-w-7xl ${
-          scrolled ? "glass shadow-soft" : "bg-transparent"
-        }`}
+        className="relative z-10 mx-3 flex items-center justify-between gap-3 rounded-2xl px-3 py-2.5 transition-all duration-300 glass shadow-soft sm:mx-4 sm:gap-6 sm:rounded-3xl sm:px-5 sm:py-3 md:mx-auto md:max-w-7xl"
       >
         <Link
           to="/"
@@ -72,7 +68,7 @@ export function SiteNav() {
 
         <div className="hidden items-center gap-2 md:flex">
           <a
-            href={amenitiesHref}
+            href="/orah-cafe-perth/visit#amenities"
             className="rounded-xl px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
           >
             Amenities
@@ -128,7 +124,7 @@ export function SiteNav() {
               </Link>
             ))}
             <a
-              href={amenitiesHref}
+              href="/orah-cafe-perth/visit#amenities"
               onClick={() => setOpen(false)}
               className="rounded-xl px-4 py-3 text-base font-semibold text-foreground/90 transition active:scale-[0.98] active:bg-cream hover:bg-secondary"
             >

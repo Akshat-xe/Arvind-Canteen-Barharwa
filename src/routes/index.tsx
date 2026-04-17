@@ -236,7 +236,7 @@ function Highlights() {
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
           {highlights.map((h, i) => (
             <motion.article
               key={h.name}
@@ -259,13 +259,13 @@ function Highlights() {
                   <Sparkles className="h-3 w-3 text-primary" /> {h.tag}
                 </span>
               </div>
-              <div className="flex items-start justify-between gap-4 p-5">
-                <div>
-                  <h3 className="font-display text-xl">{h.name}</h3>
-                  <p className="mt-1 text-sm text-foreground/65">{h.blurb}</p>
+              <div className="flex items-start justify-between gap-2 p-3 sm:gap-4 sm:p-5">
+                <div className="min-w-0">
+                  <h3 className="font-display text-base leading-snug sm:text-xl">{h.name}</h3>
+                  <p className="mt-1 hidden text-sm text-foreground/65 sm:block">{h.blurb}</p>
                 </div>
                 {h.price !== undefined && (
-                  <span className="shrink-0 rounded-full bg-secondary px-3 py-1 text-sm font-semibold text-foreground">
+                  <span className="shrink-0 rounded-full bg-secondary px-2 py-1 text-xs font-semibold text-foreground sm:px-3 sm:text-sm">
                     ${h.price.toFixed(2)}
                   </span>
                 )}
@@ -357,10 +357,34 @@ const orahTestimonials = [
     src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop",
   },
   {
-    quote: "A little hidden gem in the city. Quick service even on busy mornings.",
+    quote: "A little hidden gem in the city. Quick service even on the busiest mornings.",
     name: "Priya",
     designation: "CBD Worker",
     src: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop",
+  },
+  {
+    quote: "Best eggs benny in Perth, full stop. The hollandaise is absolutely silky.",
+    name: "Tom",
+    designation: "Brunch Enthusiast",
+    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
+  },
+  {
+    quote: "Perfect study spot — good Wi-Fi, great chai latte, and they never rush you out.",
+    name: "Sophie",
+    designation: "UWA Student",
+    src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop",
+  },
+  {
+    quote: "The Korean Bulgogi Pasta is absolutely unreal. My new Friday tradition.",
+    name: "Min",
+    designation: "Perth Local",
+    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
+  },
+  {
+    quote: "Popped in for a quick coffee and ended up staying two hours. No regrets at all.",
+    name: "Lucy",
+    designation: "City Explorer",
+    src: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=400&auto=format&fit=crop",
   },
 ];
 
