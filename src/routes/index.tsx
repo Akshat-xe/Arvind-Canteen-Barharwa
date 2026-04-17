@@ -19,7 +19,7 @@ import heroCoffee from "@/assets/hero-coffee.jpg";
 import interior from "@/assets/interior.jpg";
 import barista from "@/assets/barista.jpg";
 import { highlights, business } from "@/data/menu";
-import { CircularGallery } from "@/components/CircularGallery";
+import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import { PopularTimes } from "@/components/PopularTimes";
 
 export const Route = createFileRoute("/")({
@@ -51,8 +51,7 @@ function HomePage() {
       <TrustStrip />
       <Highlights />
       <WhyLocals />
-      <GalleryTeaser />
-      <Reviews />
+      <TestimonialsSection />
       <PopularTimes />
       <Visit />
       <FAQ />
@@ -338,93 +337,57 @@ function WhyLocals() {
   );
 }
 
-function GalleryTeaser() {
-  return (
-    <section className="relative overflow-hidden bg-ink py-16 text-ink-foreground md:py-24">
-      <div className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-primary/25 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-accent/25 blur-3xl" />
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-4 md:mb-10">
-          <div className="max-w-xl">
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-accent sm:text-sm">
-              Gallery
-            </p>
-            <h2 className="mt-2 font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
-              A floating spread of <span className="italic">Orah</span>.
-            </h2>
-            <p className="mt-3 text-sm text-ink-foreground/70 sm:text-base">
-              A 3D drift through the dishes locals reorder. Tap a card, then
-              step into the full gallery.
-            </p>
-          </div>
-          <Link
-            to="/gallery"
-            className="inline-flex items-center gap-2 rounded-full bg-cream px-5 py-2.5 text-sm font-semibold text-ink transition active:scale-95 hover:opacity-90"
-          >
-            Open gallery <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
+const orahTestimonials = [
+  {
+    quote: "Amazingly priced and incredibly tasty. Easily my favourite Hay Street stop.",
+    name: "Maddie",
+    designation: "Regular",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop",
+  },
+  {
+    quote: "The salads are fresh, generous and full of flavour. Great spot for a working lunch.",
+    name: "James",
+    designation: "Local",
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
+  },
+  {
+    quote: "Friendly staff, lovely coffee, and a vibe that makes you want to stay all morning.",
+    name: "Aiko",
+    designation: "Visitor",
+    src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop",
+  },
+  {
+    quote: "A little hidden gem in the city. Quick service even on busy mornings.",
+    name: "Priya",
+    designation: "CBD Worker",
+    src: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop",
+  },
+];
 
-        <CircularGallery />
-      </div>
-    </section>
-  );
-}
-
-function Reviews() {
-  const reviews = [
-    { quote: "Amazingly priced and incredibly tasty. Easily my favourite Hay Street stop.", name: "Maddie", tag: "Regular" },
-    { quote: "The salads are fresh, generous and full of flavour. Great spot for a working lunch.", name: "James", tag: "Local" },
-    { quote: "Friendly staff, lovely coffee, and a vibe that makes you want to stay all morning.", name: "Aiko", tag: "Visiting" },
-    { quote: "A little hidden gem in the city. Quick service even on busy mornings.", name: "Priya", tag: "CBD worker" },
-  ];
+function TestimonialsSection() {
   return (
     <section className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
+        <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-primary">What people say</p>
             <h2 className="mt-3 font-display text-4xl tracking-tight md:text-5xl">
               Loved by Perth.
             </h2>
-            <div className="mt-6 inline-flex items-center gap-3 rounded-2xl bg-secondary px-5 py-4">
-              <div className="flex">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-current text-accent" />
-                ))}
-              </div>
-              <div>
-                <p className="text-2xl font-semibold leading-none">4.9</p>
-                <p className="text-xs text-foreground/60">Based on 440 Google reviews</p>
-              </div>
+          </div>
+          <div className="inline-flex items-center gap-3 rounded-2xl bg-secondary px-5 py-4">
+            <div className="flex">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-current text-accent" />
+              ))}
+            </div>
+            <div>
+              <p className="text-2xl font-semibold leading-none">4.9</p>
+              <p className="text-xs text-foreground/60">440 Google reviews</p>
             </div>
           </div>
-
-          <div className="grid gap-5 sm:grid-cols-2">
-            {reviews.map((r, i) => (
-              <motion.figure
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="rounded-3xl bg-card p-6 shadow-soft"
-              >
-                <div className="flex">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-current text-accent" />
-                  ))}
-                </div>
-                <blockquote className="mt-3 font-display text-lg leading-snug text-foreground/85">
-                  "{r.quote}"
-                </blockquote>
-                <figcaption className="mt-4 text-sm text-foreground/60">
-                  — {r.name} · <span className="text-foreground/50">{r.tag}</span>
-                </figcaption>
-              </motion.figure>
-            ))}
-          </div>
         </div>
+        <CircularTestimonials testimonials={orahTestimonials} />
       </div>
     </section>
   );
@@ -501,6 +464,12 @@ function Visit() {
               >
                 View menu
               </Link>
+              <a
+                href="/orah-cafe-perth/visit#amenities"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition active:scale-95 hover:bg-secondary"
+              >
+                See all amenities
+              </a>
             </div>
           </div>
 

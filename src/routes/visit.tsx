@@ -166,7 +166,7 @@ function VisitPage() {
       </section>
 
       {/* Amenities */}
-      <section className="bg-cream py-16 md:py-20">
+      <section id="amenities" className="bg-cream py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-8 max-w-2xl md:mb-10">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary sm:text-sm">

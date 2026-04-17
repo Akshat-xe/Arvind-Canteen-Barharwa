@@ -10,6 +10,8 @@ const links = [
   { to: "/visit" as const, label: "Visit" },
 ];
 
+const amenitiesHref = "/orah-cafe-perth/visit#amenities";
+
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -70,6 +72,12 @@ export function SiteNav() {
 
         <div className="hidden items-center gap-2 md:flex">
           <a
+            href={amenitiesHref}
+            className="rounded-xl px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
+          >
+            Amenities
+          </a>
+          <a
             href={business.phoneHref}
             className="inline-flex items-center gap-2 rounded-xl bg-ink px-4 py-2 text-sm font-medium text-ink-foreground transition active:scale-95 hover:opacity-90"
           >
@@ -119,6 +127,13 @@ export function SiteNav() {
                 {l.label}
               </Link>
             ))}
+            <a
+              href={amenitiesHref}
+              onClick={() => setOpen(false)}
+              className="rounded-xl px-4 py-3 text-base font-semibold text-foreground/90 transition active:scale-[0.98] active:bg-cream hover:bg-secondary"
+            >
+              Amenities
+            </a>
             <a
               href={business.phoneHref}
               onClick={() => setOpen(false)}

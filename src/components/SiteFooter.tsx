@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, Phone, Star, Wifi, Trees, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Star, Wifi, Trees, ArrowUpRight, Instagram, Facebook } from "lucide-react";
 import { business, highlights } from "@/data/menu";
 
 export function SiteFooter() {
@@ -29,6 +29,26 @@ export function SiteFooter() {
               <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1.5">
                 <Trees className="h-3.5 w-3.5" /> Outdoor seating
               </span>
+            </div>
+            <div className="mt-5 flex gap-3">
+              <a
+                href={business.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Orah Cafe on Instagram"
+                className="grid h-9 w-9 place-items-center rounded-xl bg-white/10 transition hover:bg-white/20"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href={business.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Orah Cafe on Facebook"
+                className="grid h-9 w-9 place-items-center rounded-xl bg-white/10 transition hover:bg-white/20"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
@@ -73,6 +93,14 @@ export function SiteFooter() {
                 <Link to="/visit" className="transition-colors hover:text-ink-foreground">
                   Visit Us
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="/orah-cafe-perth/visit#amenities"
+                  className="transition-colors hover:text-ink-foreground"
+                >
+                  Amenities
+                </a>
               </li>
               <li>
                 <a

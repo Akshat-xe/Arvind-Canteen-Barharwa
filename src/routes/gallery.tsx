@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { CircularGallery } from "@/components/CircularGallery";
 import { ScrollGallery } from "@/components/ScrollGallery";
 import interior from "@/assets/interior.jpg";
 
@@ -27,48 +26,33 @@ export const Route = createFileRoute("/gallery")({
 function GalleryPage() {
   return (
     <div className="bg-background">
-      {/* Hero with circular gallery */}
-      <section className="relative overflow-hidden bg-ink py-16 text-ink-foreground md:py-24">
-        <div className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
-        <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-accent/25 blur-3xl" />
-
-        <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
-          <div className="mb-6 text-center md:mb-10">
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-accent sm:text-sm">
-              Gallery
-            </p>
-            <h1 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl md:text-7xl">
-              A floating spread of <span className="italic">Orah</span>.
-            </h1>
-            <p className="mx-auto mt-3 max-w-xl text-sm text-ink-foreground/70 sm:text-base">
-              Drift through the dishes and moments people love. Scroll, hover,
-              or just let it spin.
-            </p>
+      {/* Header */}
+      <section className="relative overflow-hidden bg-cream py-14 md:py-20">
+        <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-blush/30 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-sage/25 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary sm:text-sm">
+            Gallery
+          </p>
+          <h1 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl md:text-6xl">
+            Every frame of <span className="italic">Orah</span>.
+          </h1>
+          <p className="mt-3 max-w-xl text-sm text-foreground/70 sm:text-base">
+            Brunch, coffee and café moments from Hay Street, Perth.
+          </p>
+          <div className="mt-6 flex gap-3">
+            <Link
+              to="/menu"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-ink-foreground transition active:scale-95 hover:opacity-90"
+            >
+              See the menu <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
-
-          <CircularGallery />
         </div>
       </section>
 
-      {/* Scroll-driven gallery */}
+      {/* Gallery grid */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 md:py-24">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4 md:mb-10">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary sm:text-sm">
-              Every frame
-            </p>
-            <h2 className="mt-2 font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
-              Scroll through Orah.
-            </h2>
-          </div>
-          <Link
-            to="/menu"
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-ink-foreground transition active:scale-95 hover:opacity-90"
-          >
-            See full menu <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-
         <ScrollGallery />
       </section>
     </div>

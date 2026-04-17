@@ -183,8 +183,10 @@ export const business = {
   phoneHref: "tel:+61412473286",
   rating: 4.9,
   reviews: 440,
+  instagram: "https://www.instagram.com/orahcafe/",
+  facebook: "https://www.facebook.com/Orahcafe/",
   // Short link from Google Maps share (opens app on mobile, web on desktop)
-  mapsUrl: "https://maps.app.goo.gl/mEQeGPyefHWf4VHz7",
+  mapsUrl: "https://maps.app.goo.gl/Uib5mHdJRsC9WPJr7",
   // Directions link — opens the directions UI
   directionsUrl:
     "https://www.google.com/maps/dir/?api=1&destination=Orah+Cafe+Suite+3%2F459+Hay+St+Perth+WA+6000",
