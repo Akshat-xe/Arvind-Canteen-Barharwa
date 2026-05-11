@@ -1,48 +1,421 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arvind Canteen Barharwa — Sweets, Snacks & Bakery Since 1956</title>
-    <meta
-      name="description"
-      content="Arvind Canteen — Barharwa's most trusted sweet shop since 1956. Fresh sweets, savory snacks and bakery on Main Road, Jharkhand."
-    />
-    <meta property="og:title" content="Arvind Canteen Barharwa — Since 1956" />
-    <meta
-      property="og:description"
-      content="70 Years of Trust &amp; Legacy. Sweets, Snacks &amp; Bakery in Barharwa, Jharkhand. 4.3★ on Google."
-    />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
-    />
-    <script>
-      // GitHub Pages SPA redirect: restore the path from the query string
-      (function (l) {
-        if (l.search[1] === "/") {
-          var decoded = l.search
-            .slice(1)
-            .split("&")
-            .map(function (s) {
-              return s.replace(/~and~/g, "&");
-            })
-            .join("?");
-          window.history.replaceState(
-            null,
-            null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      })(window.location);
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arvind Canteen Barharwa — Sweets, Snacks &amp; Bakery Since 1956</title>
+  <meta name="description" content="Arvind Canteen, Barharwa's most trusted sweet shop since 1956. Fresh sweets, savory snacks and bakery — 70 years of taste and legacy on Main Road." />
+  <meta property="og:title" content="Arvind Canteen Barharwa — Since 1956" />
+  <meta property="og:description" content="70 Years of Trust &amp; Legacy. Fresh sweets, snacks and bakery in Barharwa, Jharkhand. 4.3★ on Google." />
+  <meta property="og:image" content="images/img-35.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="site-wrap">
+
+  <!-- NAV -->
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-badge">AC</span>
+        <div>
+          <div class="nav-logo-text">Arvind Canteen</div>
+          <div class="nav-logo-sub">Since 1956</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link" data-nav-link>Home</a>
+        <a href="menu.html" class="nav-link" data-nav-link>Menu</a>
+        <a href="gallery.html" class="nav-link" data-nav-link>Gallery</a>
+        <a href="visit.html" class="nav-link" data-nav-link>Visit</a>
+      </div>
+      <div class="nav-actions">
+        <a href="visit.html#amenities" class="nav-amenities">Amenities</a>
+        <a href="tel:+919955227700" class="btn-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L10.09 14a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call
+        </a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-backdrop" id="mob-backdrop"></div>
+      <div class="mobile-panel">
+        <a href="index.html" data-nav-link>Home</a>
+        <a href="menu.html" data-nav-link>Menu</a>
+        <a href="gallery.html" data-nav-link>Gallery</a>
+        <a href="visit.html" data-nav-link>Visit</a>
+        <a href="visit.html#amenities">Amenities</a>
+        <a href="tel:+919955227700" class="mobile-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L10.09 14a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call 9955227700
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-blob-l"></div>
+      <div class="hero-blob-r"></div>
+      <div class="wrap hero-grid">
+        <div>
+          <div class="hero-loc-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Main Road, near UCO Bank, Barharwa
+          </div>
+          <h1>Fresh sweets.<br><em>70 years</em> of trust.</h1>
+          <p class="hero-sub">Arvind Canteen — Barharwa's favourite sweet shop since 1956. Traditional mithai, crispy snacks, fresh bakery, and birthday cakes.</p>
+          <div class="hero-btns">
+            <a href="menu.html" class="btn-dark">
+              View Menu
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="visit.html" class="btn-light">Visit Us</a>
+            <a href="tel:+919955227700" class="btn-outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L10.09 14a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Call now
+            </a>
+          </div>
+          <div class="hero-chips">
+            <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-sm" style="color:var(--accent)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.3 Google Rating</span>
+            <span class="chip">Birthday Cakes</span>
+            <span class="chip">Fresh Sweets</span>
+            <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Barharwa, JH</span>
+          </div>
+        </div>
+
+        <div class="hero-img-wrap">
+          <div class="hero-img">
+            <img src="images/img-35.png" alt="Arvind Canteen Since 1956 — Sweets, Snacks, Bakery, Barharwa" />
+          </div>
+          <div class="hero-float hero-float-l">
+            <div class="hero-rating">
+              <div class="hero-rating-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div>
+                <div class="hero-rating-num">4.3</div>
+                <div class="hero-rating-sub">152 Google reviews</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-float hero-float-r">
+            <div class="hero-est-label">Est.</div>
+            <div class="hero-est-val">Since 1956</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip">
+      <div class="wrap trust-strip-inner">
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Fresh sweets daily</span></div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><circle cx="12" cy="12" r="10"/></svg><span>Crispy savory snacks</span></div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg><span>Bakery &amp; cakes</span></div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span>Takeaway &amp; dine-in</span></div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-md" style="color:var(--accent)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Since 1956</span></div>
+        <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg><span>Vegetarian only</span></div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="section" style="background:var(--bg)">
+      <div class="wrap">
+        <div class="section-head-row">
+          <div>
+            <p class="label">Most loved at Arvind Canteen</p>
+            <h2 class="section-title">The sweets people reorder.</h2>
+            <p class="section-sub">Fresh every day — from our Gulab Jamun to birthday cakes, with chai on the side. 70 years of taste in every bite.</p>
+          </div>
+          <a href="menu.html" class="btn-sm-light">
+            See full menu
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="highlights-grid">
+          <article class="highlight-card reveal">
+            <div class="highlight-img-wrap"><img src="images/img-13.png" alt="Gulab Jamun" loading="lazy" /><span class="highlight-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg> Most Loved</span></div>
+            <div class="highlight-body"><h3>Gulab Jamun</h3><p>Soft, perfectly soaked in light sugar syrup. A timeless Barharwa classic.</p></div>
+          </article>
+          <article class="highlight-card reveal reveal-d1">
+            <div class="highlight-img-wrap"><img src="images/img-00.png" alt="Birthday Cakes" loading="lazy" /><span class="highlight-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg> Festive Favourite</span></div>
+            <div class="highlight-body"><h3>Birthday Cakes</h3><p>Custom celebration cakes freshly made for every occasion.</p></div>
+          </article>
+          <article class="highlight-card reveal reveal-d2">
+            <div class="highlight-img-wrap"><img src="images/img-14.png" alt="Saffron Barfi" loading="lazy" /><span class="highlight-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg> Heritage Sweet</span></div>
+            <div class="highlight-body"><h3>Saffron Barfi</h3><p>Golden milk barfi with saffron and rose petals — a traditional favourite.</p></div>
+          </article>
+          <article class="highlight-card reveal">
+            <div class="highlight-img-wrap"><img src="images/img-05.png" alt="Cream Rolls" loading="lazy" /><span class="highlight-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg> Fresh Daily</span></div>
+            <div class="highlight-body"><h3>Cream Rolls</h3><p>Freshly filled cream rolls made every morning at the bakery counter.</p></div>
+          </article>
+          <article class="highlight-card reveal reveal-d1">
+            <div class="highlight-img-wrap"><img src="images/img-18.png" alt="Motichoor Ladoo" loading="lazy" /><span class="highlight-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg> Classic Sweet</span></div>
+            <div class="highlight-body"><h3>Motichoor Ladoo</h3><p>Fine gram flour pearls formed into fragrant, golden laddoos.</p></div>
+          </article>
+          <article class="highlight-card reveal reveal-d2">
+            <div class="highlight-img-wrap"><img src="images/img-50.png" alt="Rose Sweets" loading="lazy" /><span class="highlight-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg> Seasonal Pick</span></div>
+            <div class="highlight-body"><h3>Rose Sweets</h3><p>Delicate rose-shaped sweets — beautiful, fragrant, and fresh.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY LOCALS -->
+    <section class="section why-section">
+      <div class="wrap">
+        <div class="why-grid">
+          <div class="why-img-wrap">
+            <img src="images/img-03.png" alt="Arvind Canteen shop interior with sweets counter" class="why-img-main" loading="lazy" />
+            <img src="images/img-07.png" alt="Sweets counter" class="why-img-over" loading="lazy" />
+          </div>
+          <div>
+            <p class="label">Why Barharwa loves Arvind Canteen</p>
+            <h2 class="section-title">The Main Road ritual.</h2>
+            <p class="section-sub">Tucked on Main Road near UCO Bank, this is the kind of place where regulars know exactly what they want, kids save their pocket money for, and no celebration is complete without a box of sweets.</p>
+            <div class="why-reasons">
+              <div class="reason-card reveal"><div class="reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-lg"><circle cx="12" cy="12" r="10"/></svg></div><h3>Fresh every single day</h3><p>Sweets made fresh daily — never stale, always authentic.</p></div>
+              <div class="reason-card reveal reveal-d1"><div class="reason-icon"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-lg" style="color:var(--primary)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>70 years of trust</h3><p>Since 1956, Arvind Canteen has been the go-to for Barharwa's families.</p></div>
+              <div class="reason-card reveal reveal-d2"><div class="reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-lg"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div><h3>Sweets, snacks &amp; bakery</h3><p>Traditional mithai, crispy snacks, bakery items, and birthday cakes — all under one roof.</p></div>
+              <div class="reason-card reveal reveal-d3"><div class="reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-lg"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h3>Warm, friendly service</h3><p>A welcoming shop where everyone gets a smile and sweets taste like they were made with care.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" style="background:var(--bg)">
+      <div class="wrap">
+        <div class="testimonials-header">
+          <div>
+            <p class="label">What people say</p>
+            <h2 class="section-title">Loved by Barharwa.</h2>
+          </div>
+          <div class="rating-box">
+            <div class="stars">
+              <svg class="star-full" viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+              <svg class="star-full" viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+              <svg class="star-full" viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+              <svg class="star-full" viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+              <svg class="star-dim" viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+            </div>
+            <div><div class="rating-num">4.3</div><div class="rating-sub">152 Google reviews</div></div>
+          </div>
+        </div>
+        <div class="circ-test" id="testimonials">
+          <div class="circ-test-grid">
+            <div class="circ-cards">
+              <button class="circ-card" aria-label="Vishal Thakur"><img src="images/img-13.png" alt="Vishal Thakur" /></button>
+              <button class="circ-card" aria-label="BYT JerryOP"><img src="images/img-00.png" alt="BYT JerryOP" /></button>
+              <button class="circ-card" aria-label="Ayush Rastogi"><img src="images/img-04.png" alt="Ayush Rastogi" /></button>
+              <button class="circ-card" aria-label="Local Customer"><img src="images/img-08.png" alt="Local Customer" /></button>
+              <button class="circ-card" aria-label="Ansh Raj"><img src="images/img-50.png" alt="Ansh Raj" /></button>
+              <button class="circ-card" aria-label="Sumit Kumar"><img src="images/img-03.png" alt="Sumit Kumar" /></button>
+              <button class="circ-card" aria-label="Journal Roy"><img src="images/img-18.png" alt="Journal Roy" /></button>
+              <button class="circ-card" aria-label="Yatish Kumar"><img src="images/img-05.png" alt="Yatish Kumar" /></button>
+            </div>
+            <div>
+              <div class="circ-stars">
+                <svg viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+                <svg viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+                <svg viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+                <svg viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+                <svg viewBox="0 0 20 20"><polygon points="10 1 12.9 7.2 20 8.2 14.9 13.1 16.2 20.2 10 16.8 3.8 20.2 5.1 13.1 0 8.2 7.1 7.2"/></svg>
+              </div>
+              <div class="circ-quote circ-quote-area">
+                <blockquote class="circ-blockquote">"Sweets are always fresh, perfectly balanced in taste. Snacks are crispy and flavorful. Clean shop, friendly staff. A must visit!"</blockquote>
+                <div class="circ-author"><div class="circ-name">Vishal Thakur</div><div class="circ-role">Regular Customer</div></div>
+              </div>
+              <div class="circ-controls">
+                <button class="circ-btn" id="circ-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button class="circ-btn" id="circ-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+              </div>
+              <div class="circ-dots">
+                <div class="circ-dot active"></div><div class="circ-dot"></div><div class="circ-dot"></div><div class="circ-dot"></div>
+                <div class="circ-dot"></div><div class="circ-dot"></div><div class="circ-dot"></div><div class="circ-dot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPULAR TIMES -->
+    <section class="section pop-times-section">
+      <div class="wrap" style="max-width:64rem">
+        <p class="label">Visit rhythm</p>
+        <h2 class="section-title">When we're busiest.</h2>
+        <p class="section-sub">A peek at how the shop flows through the week — handy for knowing when to visit for the freshest sweets or a quieter stop.</p>
+        <div class="pop-card reveal" id="popular-times" style="margin-top:2rem">
+          <div class="pop-header">
+            <div class="pop-days">
+              <button class="pop-day-btn" data-day="MON"><span class="d-m">M</span><span class="d-d">MON</span></button>
+              <button class="pop-day-btn" data-day="TUE"><span class="d-m">T</span><span class="d-d">TUE</span></button>
+              <button class="pop-day-btn" data-day="WED"><span class="d-m">W</span><span class="d-d">WED</span></button>
+              <button class="pop-day-btn" data-day="THU"><span class="d-m">T</span><span class="d-d">THU</span></button>
+              <button class="pop-day-btn" data-day="FRI"><span class="d-m">F</span><span class="d-d">FRI</span></button>
+              <button class="pop-day-btn active" data-day="SAT"><span class="d-m">S</span><span class="d-d">SAT</span></button>
+              <button class="pop-day-btn" data-day="SUN"><span class="d-m">S</span><span class="d-d">SUN</span></button>
+            </div>
+            <div class="pop-live"><span class="pop-live-dot"></span> Sat evening — typically busy</div>
+          </div>
+          <div class="pop-chart">
+            <div class="pop-bars-wrap">
+              <div class="pop-gridlines"><div class="pop-gridline"></div><div class="pop-gridline"></div><div class="pop-gridline"></div><div class="pop-gridline"></div></div>
+              <div class="pop-bars"></div>
+            </div>
+            <div class="pop-xlabels"><span>8a</span><span>11a</span><span>2p</span><span>5p</span><span>8p</span><span>11p</span></div>
+          </div>
+          <div class="pop-stats">
+            <div><div class="pop-stat-label">Day</div><div class="pop-stat-val" id="pop-day-label">Sat</div></div>
+            <div><div class="pop-stat-label">Peak</div><div class="pop-stat-val" id="pop-peak-label">6p–9p</div></div>
+            <div><div class="pop-stat-label">Vibe</div><div class="pop-stat-sub" id="pop-vibe-label">Busiest day — lively all day</div></div>
+          </div>
+          <p class="pop-note">Open daily · Closes 10 pm · Fresh sweets and snacks every day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISIT -->
+    <section class="section" style="background:var(--bg)">
+      <div class="wrap">
+        <div class="visit-card">
+          <div class="visit-card-body">
+            <p class="label">Visit us</p>
+            <h2 class="section-title">On Main Road, Barharwa.</h2>
+            <p class="section-sub">Easy to find — near UCO Bank, in front of Patanjali. Pop in for sweets, snacks, or a birthday cake.</p>
+            <div style="margin-top:2rem">
+              <a href="https://www.google.com/maps?q=VQ4C%2BG5+Barharwa,+Jharkhand" target="_blank" rel="noreferrer" class="visit-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div><div class="visit-row-title">Arvind Canteen</div><div class="visit-row-sub">Main Road, near UCO Bank</div><div class="visit-row-sub2">Barharwa, Jharkhand 816101</div></div>
+              </a>
+              <a href="tel:+919955227700" class="visit-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L10.09 14a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <div><div class="visit-row-title">9955227700</div><div class="visit-row-sub">Tap to call</div></div>
+              </a>
+              <div class="visit-row" style="cursor:default">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div><div class="visit-row-title">Open daily · Closes 10 pm</div><div class="visit-row-sub">Fresh sweets and snacks every day.</div></div>
+              </div>
+            </div>
+            <div class="visit-tags">
+              <span class="visit-tag">Dine-in</span><span class="visit-tag">Takeaway</span><span class="visit-tag">Vegetarian only</span><span class="visit-tag">Cash only</span><span class="visit-tag">Free parking</span><span class="visit-tag">Good for kids</span>
+            </div>
+            <div class="visit-btns">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Arvind+Canteen+Main+Road+near+UCO+Bank+Barharwa+Jharkhand+816101" target="_blank" rel="noreferrer" class="btn-sm-dark">Get directions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-md"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              <a href="menu.html" class="btn-sm-light">View menu</a>
+            </div>
+          </div>
+          <div class="visit-map-wrap">
+            <iframe title="Arvind Canteen location" src="https://www.google.com/maps?q=VQ4C%2BG5+Barharwa,+Jharkhand&output=embed" loading="eager" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section">
+      <div class="wrap-sm">
+        <p class="label">FAQ</p>
+        <h2 class="section-title">Good things to know.</h2>
+        <div class="faq-list">
+          <details class="faq-item"><summary>What do you sell at Arvind Canteen? <span class="faq-icon">+</span></summary><p class="faq-answer">We sell traditional Indian sweets (mithai), savory snacks like samosa and golgappa, bakery items, and custom birthday cakes. All vegetarian.</p></details>
+          <details class="faq-item"><summary>Are the sweets made fresh? <span class="faq-icon">+</span></summary><p class="faq-answer">Yes — sweets and snacks are made fresh daily. Customers consistently praise the freshness and authentic taste.</p></details>
+          <details class="faq-item"><summary>Do you make custom birthday cakes? <span class="faq-icon">+</span></summary><p class="faq-answer">Yes, we make custom celebration cakes. Come in or call us to place your order in advance.</p></details>
+          <details class="faq-item"><summary>Where exactly is Arvind Canteen? <span class="faq-icon">+</span></summary><p class="faq-answer">We're on Main Road, near UCO Bank, in front of Patanjali, Barharwa, Jharkhand 816101.</p></details>
+          <details class="faq-item"><summary>What are your opening hours? <span class="faq-icon">+</span></summary><p class="faq-answer">We are open daily and close at 10 pm. Come in anytime for fresh sweets, snacks, or a quick bite.</p></details>
+          <details class="faq-item"><summary>Do you offer takeaway? <span class="faq-icon">+</span></summary><p class="faq-answer">Yes — takeaway and dine-in both available. We also offer delivery and catering for events.</p></details>
+          <details class="faq-item"><summary>What payment methods do you accept? <span class="faq-icon">+</span></summary><p class="faq-answer">We currently accept cash only.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <span class="footer-brand-badge">AC</span>
+            <div><div class="footer-logo-title">Arvind Canteen</div><div class="footer-logo-sub">Since 1956</div></div>
+          </div>
+          <p class="footer-desc">Barharwa's most loved sweet shop on Main Road. Traditional mithai, crispy snacks, bakery and birthday cakes — 70 years of trust and legacy in every bite.</p>
+          <div class="footer-chips">
+            <span class="footer-chip"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.875rem;height:.875rem;color:var(--accent)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.3 · 152 reviews</span>
+            <span class="footer-chip">Vegetarian only</span>
+            <span class="footer-chip">₹1–200 per person</span>
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/arvind_canteen1956/" target="_blank" rel="noreferrer" aria-label="Instagram" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" class="footer-social"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          </div>
+          <p class="footer-instagram">Instagram: @arvind_canteen1956</p>
+        </div>
+        <div class="footer-col">
+          <h4>Our Sweets</h4>
+          <ul>
+            <li><a href="menu.html">Gulab Jamun</a></li>
+            <li><a href="menu.html">Motichoor Ladoo</a></li>
+            <li><a href="menu.html">Malai Barfi</a></li>
+            <li><a href="menu.html">Kaju Katli</a></li>
+            <li><a href="menu.html">Rasgulla</a></li>
+            <li><a href="menu.html">Birthday Cakes</a></li>
+          </ul>
+          <a href="menu.html" class="more">View full menu →</a>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="visit.html">Visit Us</a></li>
+            <li><a href="visit.html#amenities">Amenities</a></li>
+            <li><a href="tel:+919955227700">Call Now</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <a href="https://www.google.com/maps?q=VQ4C%2BG5+Barharwa,+Jharkhand" target="_blank" rel="noreferrer" class="footer-visit-addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem;flex-shrink:0;margin-top:.125rem"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Main Road, near UCO Bank<br>Barharwa, JH 816101</span></a>
+          <a href="tel:+919955227700" class="footer-visit-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:1rem;height:1rem"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L10.09 14a16 16 0 006.86 6.86l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> 9955227700</a>
+          <div class="footer-tags"><span class="footer-tag">Dine-in</span><span class="footer-tag">Takeaway</span><span class="footer-tag">Cash only</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="yr"></span> Arvind Canteen, Barharwa. Since 1956.</p>
+        <p>Web Developer · Web Designer: <strong style="color:oklch(.96 .012 80 / .75)">Akshat Kumar</strong></p>
+        <div class="footer-bottom-links"><a href="menu.html">Menu</a><a href="gallery.html">Gallery</a><a href="visit.html">Visit</a><a href="https://www.google.com/maps?q=VQ4C%2BG5+Barharwa,+Jharkhand" target="_blank" rel="noreferrer">Directions</a></div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<style>
+.d-m{display:inline}.d-d{display:none}
+@media(min-width:640px){.d-m{display:none}.d-d{display:inline}}
+</style>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+window.__testimonials = [
+  {quote:"Sweets are always fresh, perfectly balanced in taste. Snacks are crispy and flavorful. Clean shop, friendly staff. A must visit!",name:"Vishal Thakur",designation:"Regular Customer"},
+  {quote:"Best sweet shop ever! Fresh, tasty sweets and amazing snacks. Highly recommended to everyone in Barharwa.",name:"BYT JerryOP",designation:"Barharwa Local"},
+  {quote:"Loved the Motichoor Ladoo and Malai Barfi — soft, fresh, traditional flavor is rich. Freshness and quality noticeable in every bite.",name:"Ayush Rastogi",designation:"Sweet Lover"},
+  {quote:"Gulab Jamun perfectly soaked, Rasgulla melted in mouth, Kaju Katli rich and smooth. Each item tasted freshly made.",name:"Local Customer",designation:"Regular"},
+  {quote:"Must-visit for sweet lovers. Aroma, décor and friendly service create a wonderful atmosphere. Best in town!",name:"Ansh Raj",designation:"College Student"},
+  {quote:"Warm aroma of freshly made delicacies. Cozy, inviting atmosphere. Works for a quick treat or full shopping. Never disappoints.",name:"Sumit Kumar",designation:"Regular Visitor"},
+  {quote:"Great variety of sweets, super fresh and right sweetness. Easily the best quality sweet shop in Barharwa.",name:"Journal Roy",designation:"Visitor"},
+  {quote:"Food is delicious, top-notch quality. They provide the best service. Clean, cozy atmosphere. Highly recommend!",name:"Yatish Kumar",designation:"Regular"},
+];
+</script>
+<script src="script.js"></script>
+</body>
 </html>
