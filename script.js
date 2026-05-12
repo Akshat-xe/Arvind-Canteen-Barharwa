@@ -198,3 +198,5 @@
 
   cats.forEach(c => obs.observe(c));
 })();
+
+// Patch 2.0.0

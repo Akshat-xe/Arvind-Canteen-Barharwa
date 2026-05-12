@@ -4,3 +4,5 @@ Thumbs.db
 .idea
 .vscode/*
 !.vscode/extensions.json
+
+# Patch 2.0.0
