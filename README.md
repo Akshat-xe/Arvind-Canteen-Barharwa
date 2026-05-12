@@ -25,3 +25,5 @@ Arvind Canteen has been a beloved institution in Barharwa, Sahebgand, Jharkhand 
 ---
 
 *Decades of flavor. One unforgettable canteen.*
+
+<!-- Patch 2.0.0 -->
